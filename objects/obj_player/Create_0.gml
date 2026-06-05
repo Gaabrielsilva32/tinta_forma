@@ -9,6 +9,13 @@ velv     = 0;
 max_velv = 2;
 vel      = 2;
 
+//gavidade do player
+grav = 0.5;
+
+//vars do jogo
+//verfica se estou no chão
+chao = false;
+
 
 //vars inputs
 right = false;
@@ -43,7 +50,17 @@ pega_inputs = function()
 }
 
 
-//metodo para o player andar 
+//criando um método para checar se estou no chão
+checa_chao = function()
+{   
+    
+    chao = place_meeting(x, y + 1, obj_parede);
+    show_debug_message(chao);
+    
+}
+
+
+//método para o player andar 
 movimento_player = function()
 {
     // o valor da var é boleano
@@ -53,11 +70,23 @@ movimento_player = function()
     //e multiplica pela vel
     velh = (right - left) * max_velh;
     
+    
+    //se estou no chão
+    if (chao) velv = 0; //zero a velv
+        
+    //se não, a velv recebe o valor da gravidade
+    else velv = grav;
+    
+    
     //adiciona essa velocidade ao x
     //faz com que se movimente
     //e colida com os obj
     //4 é o valor padrão da precisão da colisão
     move_and_collide(velh, velv, obj_parede, 4);
+    
+    
+    //aplicando à velv
+    move_and_collide(0, velv, obj_parede);
 }
 
 #endregion
