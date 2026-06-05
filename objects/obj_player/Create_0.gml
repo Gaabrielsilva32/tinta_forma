@@ -114,20 +114,59 @@ movimento_player = function()
 }
 
 
+//método de trocar sprite
+troca_sprite = function(_sprite_atual = sprite_index){
+    
+    //se a sprite que eu tô usando no momento (sprite index)
+    //for diferente da que eu quero colocar (_sprite_atual)
+    //eu atualizo a minha sprite e zero o imagem index
+    //assim eu faço a animação sempre começar do inicio
+    // já que esse código roda só uma vez, antes da troca de sprites
+    if (sprite_index != _sprite_atual)
+    {
+        
+        sprite_index = _sprite_atual;
+        
+        image_index = 0;
+        
+    }
+    
+}
+
+
 //metodos de estado
 //metodo do estado parado
 estado_parado = function(){
     
-    //ele fica vermelho
-    image_blend = c_red;
+    //definindo a sprite player
+    troca_sprite(spr_player_idle);
+    //se estou apertando pra dirteita ou esquerda
+    //diferente de, porque não posso apertar os 2 ao mesmo tempo
+    //se são diferentes, estou me movendo
+    if (right != left)
+    {
+        //mudo o estado para movendo
+        estado = estado_movendo;
+        
+    }
     
 }
 
 //método do estado movendo
 estado_movendo = function(){
     
-    //fica azul
-    image_blend = c_blue;
+    //denifinindo a sprite
+    troca_sprite(spr_player_move);
+    
+    
+    //se a minha velh é zero
+    //ou seja, se estou parado
+    if (velh == 0)
+    {
+        //vou para o estado parado
+        estado = estado_parado;
+        
+    }
 }
 
 
@@ -210,4 +249,4 @@ ativa_debug = function(){
 
 //aqui ficam as últimas coisas do meu create
 //a var estado, armazena o estado atual do player
-estado = estado_pulando;
+estado = estado_parado;
