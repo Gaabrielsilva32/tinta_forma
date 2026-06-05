@@ -141,6 +141,11 @@ roda_debug = function(){
 
 //metodo para ativar o debug
 ativa_debug = function(){
+    
+    
+    //Se não estou no modo debug
+    //ele não faz nada
+    if (!DEBUG_MODE) return;
         
     //se eu apertar tab
     if (keyboard_check_pressed(vk_tab))
