@@ -150,6 +150,12 @@ estado_parado = function(){
         
     }
     
+    if (jump)
+    {
+        estado = estado_pulando;
+        
+    }
+    
 }
 
 //método do estado movendo
@@ -173,10 +179,25 @@ estado_movendo = function(){
 //método do estado pulando
 estado_pulando = function(){
     
-    //ele fica amarelo
-    image_blend = c_yellow;
+    //se estou indo pra cima
+    //a minha velv é negativa
+    if (velv < 0)
+    {
+        //troco o sprite
+        troca_sprite(spr_player_jump_cima);
+    }
+    else //se estou caindo, a minha velv é positiva 
+    {
+    	troca_sprite(spr_player_jump_baixo);
+    }
     
-    
+    //se estou no chão
+    if (chao)
+    {
+        //vou para o estado de parado
+        estado = estado_parado;
+        
+    }
 }
 
 
