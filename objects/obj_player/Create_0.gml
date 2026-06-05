@@ -6,7 +6,7 @@
 velh     = 0;
 max_velh = 2;
 velv     = 0;
-max_velv = 2;
+max_velv = 10;
 vel      = 2;
 
 //gavidade do player
@@ -46,7 +46,7 @@ pega_inputs = function()
     //porque ela é a principal
     right = keyboard_check(ord("D"));
     left  = keyboard_check(ord("A"));
-    jump  =  keyboard_check(vk_space);
+    jump  =  keyboard_check_pressed(vk_space);
 }
 
 
@@ -72,7 +72,18 @@ movimento_player = function()
     
     
     //se estou no chão
-    if (chao) velv = 0; //zero a velv
+    if (chao) 
+    {
+       velv = 0; //zero a velv
+        
+        //se estou no chão e pulei
+        if (jump)
+        {
+            velv = -10;            
+            
+        }
+    }
+        
         
     //se não, a velv recebe o valor da gravidade
     else velv = grav;
