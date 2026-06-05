@@ -6,11 +6,11 @@
 velh     = 0;
 max_velh = 2;
 velv     = 0;
-max_velv = 10;
+max_velv = 3;
 vel      = 2;
 
 //gavidade do player
-grav = 0.5;
+grav = 0.3;
 
 //vars do jogo
 //verfica se estou no chão
@@ -71,22 +71,28 @@ movimento_player = function()
     velh = (right - left) * max_velh;
     
     
-    //se estou no chão
-    if (chao) 
+    //se não estou no chão
+    if (!chao) 
+    { 
+    
+        //a velv recebe o valor da gravidade
+        velv += grav;
+    }
+        
+        
+    //se não, se estou no chão
+    else 
     {
-       velv = 0; //zero a velv
+        velv = 0; //zero a velv
         
         //se estou no chão e pulei
         if (jump)
         {
-            velv = -10;            
+            velv -= max_velv;            
             
-        }
+        }   
+        
     }
-        
-        
-    //se não, a velv recebe o valor da gravidade
-    else velv = grav;
     
     
     //adiciona essa velocidade ao x
@@ -97,7 +103,13 @@ movimento_player = function()
     
     
     //aplicando à velv
-    move_and_collide(0, velv, obj_parede);
+    move_and_collide(0, velv, obj_parede, 12);
 }
+
+#endregion
+
+#region debug
+
+dbg_watch(ref_create(self, "velv"), "velv");
 
 #endregion
