@@ -6,11 +6,11 @@
 velh     = 0;
 max_velh = 2;
 velv     = 0;
-max_velv = 3;
+max_velv = 3.6;
 vel      = 2;
 
 //gavidade do player
-grav = 0.3;
+grav = 0.25;
 
 //vars do jogo
 //verfica se estou no chão
@@ -21,6 +21,10 @@ chao = false;
 right = false;
 left  = false;
 jump  = false;
+
+
+//janela que mostra os debugs
+view_player = noone;
 
 #endregion
 
@@ -55,7 +59,6 @@ checa_chao = function()
 {   
     
     chao = place_meeting(x, y + 1, obj_parede);
-    show_debug_message(chao);
     
 }
 
@@ -85,9 +88,13 @@ movimento_player = function()
     {
         velv = 0; //zero a velv
         
+        //aredondando o y
+        y = round(y)
+        
         //se estou no chão e pulei
         if (jump)
         {
+            //eu subo;
             velv -= max_velv;            
             
         }   
@@ -110,6 +117,59 @@ movimento_player = function()
 
 #region debug
 
-dbg_watch(ref_create(self, "velv"), "velv");
+//método dos roda os debugs
+roda_debug = function(){
+    
+  
+    
+    //criando os debugs dentro de uma view
+    view_player = dbg_view("View_player", 1, 40, 100, 200, 300);
+    
+    //dbg da velv
+    dbg_watch(ref_create(self, "velv"), "velv");
+     
+     
+    //dbg que dá pra alterar o valor
+    //da max_velv
+    dbg_slider(ref_create(self, "max_velv"), 0, 5, "Max_velv", .1);
+     
+     
+    //dbg que dá pra alterar o valor
+    //da gravidade
+    dbg_slider(ref_create(self, "grav"), 0, 2, "Gravidade", .1);
+}
+
+//metodo para ativar o debug
+ativa_debug = function(){
+        
+    //se eu apertar tab
+    if (keyboard_check_pressed(vk_tab))
+    { 
+        
+        //vira falso ou true
+        global.debug = !global.debug;
+        
+        
+        //se estou no modo debug
+         if (global.debug)
+         {
+             //eu rodo o debug
+             roda_debug();
+         }
+         else //se não
+         {
+             //se minha view existe
+             if (dbg_view_exists(view_player)) 
+             {
+                 //eu deleto ela
+                 dbg_view_delete(view_player);
+             }
+         
+             
+         }
+        
+    }
+}
+
 
 #endregion
