@@ -56,7 +56,8 @@ movimento_player = function()
     //adiciona essa velocidade ao x
     //faz com que se movimente
     //e colida com os obj
-    move_and_collide(velh, velv, obj_parede);
+    //4 é o valor padrão da precisão da colisão
+    move_and_collide(velh, velv, obj_parede, 4);
 }
 
 #endregion
