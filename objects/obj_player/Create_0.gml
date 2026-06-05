@@ -55,7 +55,8 @@ movimento_player = function()
     
     //adiciona essa velocidade ao x
     //faz com que se movimente
-    x += velh;  
+    //e colida com os obj
+    move_and_collide(velh, velv, obj_parede);
 }
 
 #endregion
