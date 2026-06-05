@@ -1,34 +1,61 @@
+
+#region Variáveis
+
 //velocidade 
 //horizontal e vertical do player
 velh     = 0;
 max_velh = 2;
-
 velv     = 0;
 max_velv = 2;
-
 vel      = 2;
 
+
+//vars inputs
+right = false;
+left  = false;
+jump  = false;
+
+#endregion
+
+
+
+#region Métodos
+
+
+//metodo de pegar os inputs
+pega_inputs = function()
+{
+    //o keyboard_set_map faz com que tanto a primeira tecla
+    //quanto a segunda, respondam da mesma forma
+    //ele diz "finja que a key 1 é a key 2"
+    //e então elas passam a agir da mesma forma
+    //a key 1 deixa de existir para o game maker
+    //portanto para chamar a key, tenho que chamar pela key 2
+    keyboard_set_map(vk_right, ord("D"));
+    keyboard_set_map(vk_left, ord("A"));
+   
+    //dando os valores 
+    //só passo o valor da segunda tecla escolhida no keyboard_set_map
+    //porque ela é a principal
+    right = keyboard_check(ord("D"));
+    left  = keyboard_check(ord("A"));
+    jump  =  keyboard_check(vk_space);
+}
 
 
 //metodo para o player andar 
 movimento_player = function()
 {
-    //vars para armazenar os comandos
-    var _direita, _esquerda;
-    
-    //armazenando a checagem de apertar as teclas
-    _direita = keyboard_check_direct(ord("D")) or keyboard_check_direct(vk_right);
-    _esquerda = keyboard_check_direct(ord("A")) or keyboard_check_direct(vk_left);
- 
     // o valor da var é boleano
     //ou seja, 0 ou 1
     //se estou apertando é 1, se não estou, é 0*
     //esse código define pra qual direção eu vou
     //e multiplica pela vel
-    velh = (_direita - _esquerda) * max_velh;
+    velh = (right - left) * max_velh;
     
     //adiciona essa velocidade ao x
     //faz com que se movimente
     x += velh;  
 }
 
+#endregion
