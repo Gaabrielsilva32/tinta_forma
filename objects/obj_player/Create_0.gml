@@ -113,6 +113,34 @@ movimento_player = function()
     move_and_collide(0, velv, obj_parede, 12);
 }
 
+
+//metodos de estado
+//metodo do estado parado
+estado_parado = function(){
+    
+    //ele fica vermelho
+    image_blend = c_red;
+    
+}
+
+//método do estado movendo
+estado_movendo = function(){
+    
+    //fica azul
+    image_blend = c_blue;
+}
+
+
+//método do estado pulando
+estado_pulando = function(){
+    
+    //ele fica amarelo
+    image_blend = c_yellow;
+    
+    
+}
+
+
 #endregion
 
 #region debug
@@ -178,3 +206,8 @@ ativa_debug = function(){
 
 
 #endregion
+
+
+//aqui ficam as últimas coisas do meu create
+//a var estado, armazena o estado atual do player
+estado = estado_pulando;
