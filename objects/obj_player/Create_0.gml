@@ -137,11 +137,49 @@ troca_sprite = function(_sprite_atual = sprite_index){
     
 }
 
+//método para ver se a animação acabou
+acabou_animacao = function(){
+    
+    //ela pega a velocidade (fps) do meu sprite atual
+    //que é 10
+    //e divide pelo fps do jogo
+    //que é 60
+    var _spd = sprite_get_speed(sprite_index) / FPS;
+    
+    //se a minha animação correu todos os frames
+    //o image_index é o frame que eu tô no momento
+    //e o image_number é o total de frames da minha animação
+    //se o image index passar o image number, eu terminei a animação, certo?
+    //mais ou menos
+    //o imagem index vai subindo com numero que quebrado
+    //mas da onde vem esse numero? vem do calculo feito na _spd, a vel do sprite
+    // dividido pelo fps do jogo
+    //e como esse número é quebrado, nem sempre ele vai parar num número inteiro
+    //então ele pode "comer" alguns frames. Se esse frame "comido" for o ultimo
+    //a função não retorna true, que por sua vez -futuramente- não avança para o
+    //próximo estado da animação. Ele chega muito perto do último, mas aí
+    //ele reinicia. Como resolver?
+    //simples: somando o número quebrado ao sprite index.
+    //assim, eu compenso o número quebrado e ele não vai mais comer o último frame.
+    if (image_index + _spd >= image_number)
+    {
+       
+        //a função retorna true 
+       return true;
+    }    
+    
+    
+    
+}
+
+
 
 //metodos de estado
 //metodo do estado parado
 estado_parado = function(){
     
+    
+    //se estou parado, não tenho velocidade vertical
     velh = 0;
     
     //definindo a sprite player
@@ -232,24 +270,51 @@ estado_pulando = function(){
 //estado de inicio da animação de pegando powerup
 estado_pegando_powerup_inicio = function(){
     
-    //mudando a sprite dele
+    //começo a animação de pegando powerup
     troca_sprite(spr_player_powerup_inicio);
+    
+    //se a animação acabou
+    //e aqui eu uso parenteses, 
+    //pq quero o retorno da função
+    if (acabou_animacao())
+    {
+        //vou para o próximo estado
+        estado = estado_pegando_powerup_meio;
+        
+    }
     
 }
 
 //estado do meio da animação de pegando powerup
 estado_pegando_powerup_meio = function(){
     
-    //mudando a sprite dele
+    //vou para o outra parte da animação
     troca_sprite(spr_player_powerup_meio);
+    
+    //se a animação acabou
+    if (acabou_animacao())
+    {
+        
+        //vou para o próximo estado
+        estado = estado_pegando_powerup_fim;
+        
+    }
     
 }
 
 //estado do fim da animação de pegando powerup
 estado_pegando_powerup_fim = function(){
     
-    //mudando a sprite dele
+    //última parte da animação de pegar powerup
     troca_sprite(spr_player_powerup_fim);
+    
+     //se a animação acabou
+    if (acabou_animacao())
+    {
+        //volto para o esto de parado
+        estado = estado_parado;
+        
+    }
     
 }
 
@@ -324,4 +389,4 @@ ativa_debug = function(){
 
 //aqui ficam as últimas coisas do meu create
 //a var estado, armazena o estado atual do player
-estado = estado_pegando_powerup_fim;
+estado = estado_pegando_powerup_inicio;
