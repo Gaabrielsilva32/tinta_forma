@@ -10,6 +10,8 @@ movimento();
 //metodo de ativar o debug com base no tab
 ativa_debug();
 
+ajusta_escala();
+
 //passando a var/função estado, que roda o meu estado atual
 estado();
 

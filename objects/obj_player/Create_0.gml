@@ -54,6 +54,23 @@ pega_inputs = function()
 }
 
 
+//metodo pra ajustar escala do player
+ajusta_escala = function(){
+    
+    //se a minha velh for diferente de 0
+    //o meu img xscale vai ser alterado de acordo com a minha velh
+    //se ela for positiva, a função sing retorna 1
+    //se for negativa -1
+    //e como eu disse pra isso só funcionar se a velh for diferente de 0
+    //não tenho o problema dele sumir pela img xscale ser 0
+    //fiz desse jeito, porque garanto que ele não vai se mexer 
+    //quando tiver saindo da tinta, por ex.
+    if (velh != 0) image_xscale = sign(velh);
+    
+    
+}
+
+
 //criando um método para checar se estou no chão
 checa_chao = function()
 {   
