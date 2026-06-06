@@ -50,7 +50,7 @@ pega_inputs = function()
     //porque ela é a principal
     right = keyboard_check(ord("D"));
     left  = keyboard_check(ord("A"));
-    jump  =  keyboard_check_pressed(vk_space);
+    jump  =  keyboard_check(vk_space);
 }
 
 
@@ -63,8 +63,8 @@ checa_chao = function()
 }
 
 
-//método para o player andar 
-movimento_player = function()
+//método para aplicar a velocidade à variaveis 
+aplica_velocidade_player = function()
 {
     // o valor da var é boleano
     //ou seja, 0 ou 1
@@ -77,12 +77,10 @@ movimento_player = function()
     //se não estou no chão
     if (!chao) 
     { 
-    
         //a velv recebe o valor da gravidade
         velv += grav;
     }
-        
-        
+    
     //se não, se estou no chão
     else 
     {
@@ -101,6 +99,12 @@ movimento_player = function()
         
     }
     
+}
+
+//método de movimento
+//o anterior apenas atribui um valor às variaveis
+//esse aplica o movimento
+movimento = function(){
     
     //adiciona essa velocidade ao x
     //faz com que se movimente
@@ -108,10 +112,10 @@ movimento_player = function()
     //4 é o valor padrão da precisão da colisão
     move_and_collide(velh, velv, obj_parede, 4);
     
-    
     //aplicando à velv
     move_and_collide(0, velv, obj_parede, 12);
 }
+
 
 
 //método de trocar sprite
@@ -138,6 +142,8 @@ troca_sprite = function(_sprite_atual = sprite_index){
 //metodo do estado parado
 estado_parado = function(){
     
+    velh = 0;
+    
     //definindo a sprite player
     troca_sprite(spr_player_idle);
     //se estou apertando pra dirteita ou esquerda
@@ -150,7 +156,15 @@ estado_parado = function(){
         
     }
     
+    //se eu apertei espaço, vou para o estado de pulando
     if (jump)
+    {
+        estado = estado_pulando;
+        
+    }
+    
+    //se eu não estou no chão, vou para o estado de pulando
+    if (!chao)
     {
         estado = estado_pulando;
         
@@ -160,6 +174,10 @@ estado_parado = function(){
 
 //método do estado movendo
 estado_movendo = function(){
+    
+    //passando o aplica velocidade
+    //para pegar a velocidade certa
+    aplica_velocidade_player();
     
     //denifinindo a sprite
     troca_sprite(spr_player_move);
@@ -173,11 +191,21 @@ estado_movendo = function(){
         estado = estado_parado;
         
     }
+    
+    //se estou me movendo e apertei pra pular
+    if (jump)
+    {
+        estado = estado_pulando;
+    }
 }
 
 
 //método do estado pulando
 estado_pulando = function(){
+    
+    //passando o aplica velocidade
+    //para pegar a velocidade certa
+    aplica_velocidade_player();
     
     //se estou indo pra cima
     //a minha velv é negativa
@@ -199,6 +227,32 @@ estado_pulando = function(){
         
     }
 }
+
+
+//estado de inicio da animação de pegando powerup
+estado_pegando_powerup_inicio = function(){
+    
+    //mudando a sprite dele
+    troca_sprite(spr_player_powerup_inicio);
+    
+}
+
+//estado do meio da animação de pegando powerup
+estado_pegando_powerup_meio = function(){
+    
+    //mudando a sprite dele
+    troca_sprite(spr_player_powerup_meio);
+    
+}
+
+//estado do fim da animação de pegando powerup
+estado_pegando_powerup_fim = function(){
+    
+    //mudando a sprite dele
+    troca_sprite(spr_player_powerup_fim);
+    
+}
+
 
 
 #endregion
@@ -270,4 +324,4 @@ ativa_debug = function(){
 
 //aqui ficam as últimas coisas do meu create
 //a var estado, armazena o estado atual do player
-estado = estado_parado;
+estado = estado_pegando_powerup_fim;
