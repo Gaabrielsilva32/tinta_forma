@@ -50,7 +50,7 @@ pega_inputs = function()
     //porque ela é a principal
     right = keyboard_check(ord("D"));
     left  = keyboard_check(ord("A"));
-    jump  =  keyboard_check(vk_space);
+    jump  =  keyboard_check_pressed(vk_space);
 }
 
 
@@ -66,6 +66,10 @@ checa_chao = function()
 //método para aplicar a velocidade à variaveis 
 aplica_velocidade_player = function()
 {
+    
+    //checo se estou no chão
+    checa_chao();
+    
     // o valor da var é boleano
     //ou seja, 0 ou 1
     //se estou apertando é 1, se não estou, é 0*
@@ -113,7 +117,7 @@ movimento = function(){
     move_and_collide(velh, velv, obj_parede, 4);
     
     //aplicando à velv
-    move_and_collide(0, velv, obj_parede, 12);
+    move_and_collide(0, velv, obj_parede, 24);
 }
 
 
@@ -178,9 +182,15 @@ acabou_animacao = function(){
 //metodo do estado parado
 estado_parado = function(){
     
-    
+    //zerando as vars de mov pra garantir que o estado incie com elas zeradas
     //se estou parado, não tenho velocidade vertical
     velh = 0;
+    velv = 0;
+    
+    //aplico a velocidade
+    //nesse estado eu não vou me mover
+    //só aplico pra conseguir pular
+    aplica_velocidade_player();
     
     //definindo a sprite player
     troca_sprite(spr_player_idle);
@@ -319,6 +329,35 @@ estado_pegando_powerup_fim = function(){
 }
 
 
+//estado de entrar na tinta
+estado_player_tinta_entrar = function(){
+    
+    //troco a sprite
+    troca_sprite(spr_player_tinta_entrar)
+    
+    //vejo se a animação acabou
+    if (acabou_animacao())
+    {
+        //vou pro próximo estado
+        estado = estado_player_tinta_sair;
+        
+    }
+}
+
+estado_player_tinta_sair = function(){
+    
+    //troco a sprite
+    troca_sprite(spr_player_tinta_sair);
+    
+    //vejo se a animação acabou
+    if (acabou_animacao())
+    {
+        estado = estado_parado;   
+        
+        
+    }
+    
+}
 
 #endregion
 
@@ -389,4 +428,4 @@ ativa_debug = function(){
 
 //aqui ficam as últimas coisas do meu create
 //a var estado, armazena o estado atual do player
-estado = estado_pegando_powerup_inicio;
+estado = estado_parado;
