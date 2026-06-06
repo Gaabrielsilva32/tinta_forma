@@ -29,7 +29,7 @@
   ],
   "name":"spr_player_powerup_inicio",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"Player_powerup",
     "path":"folders/Sprites/Player/Player_powerup.yy",
@@ -99,7 +99,7 @@
     ],
     "visibleRange":null,
     "volume":1.0,
-    "xorigin":10,
+    "xorigin":9,
     "yorigin":26,
   },
   "swatchColours":null,
