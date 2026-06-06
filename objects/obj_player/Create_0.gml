@@ -99,6 +99,9 @@ aplica_velocidade_player = function()
             //eu subo;
             velv -= max_velv;            
             
+            //faço a particula
+            instance_create_depth(x, y, depth, obj_player_pulo_particula);
+            
         }   
         
     }
@@ -209,6 +212,8 @@ estado_parado = function(){
     {
         estado = estado_pulando;
         
+        //faço a particula
+        instance_create_depth(x, y, depth, obj_player_pulo_particula);
     }
     
     //se eu não estou no chão, vou para o estado de pulando
@@ -244,6 +249,9 @@ estado_movendo = function(){
     if (jump)
     {
         estado = estado_pulando;
+        
+        //faço a particula
+        instance_create_depth(x, y, depth, obj_player_pulo_particula);
     }
 }
 
@@ -273,6 +281,8 @@ estado_pulando = function(){
         //vou para o estado de parado
         estado = estado_parado;
         
+        //faço a particula
+        instance_create_depth(x, y, depth, obj_player_pouso_particula);
     }
 }
 
