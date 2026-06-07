@@ -11,7 +11,7 @@ movimento();
 ativa_debug();
 
 //finalizando o efeito mola
-
+fim_ef_mola();
 
 ajusta_escala();
 

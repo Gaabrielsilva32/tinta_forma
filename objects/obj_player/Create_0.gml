@@ -26,6 +26,9 @@ jump  = false;
 //janela que mostra os debugs
 view_player = noone;
 
+//iniciando o efeito mola
+inicio_ef_mola();
+
 #endregion
 
 
@@ -118,6 +121,9 @@ aplica_velocidade_player = function()
             
             //faço a particula
             instance_create_depth(x, y, depth, obj_player_pulo_particula);
+            
+            //efeito mola
+            ef_mola(0.6, 1.2)
             
         }   
         
@@ -292,7 +298,9 @@ estado_pulando = function(){
     	troca_sprite(spr_player_jump_baixo);
     }
     
-    //se estou no chão
+    
+    
+    //se toquei no chão
     if (chao)
     {
         //vou para o estado de parado
@@ -300,6 +308,9 @@ estado_pulando = function(){
         
         //faço a particula
         instance_create_depth(x, y, depth, obj_player_pouso_particula);
+        
+        //efeito mola
+        ef_mola(1.2, 0.6);
     }
 }
 
