@@ -124,7 +124,7 @@ aplica_velocidade_player = function()
             velv -= max_velv;            
             
             //faço a particula
-            instance_create_depth(x, y, depth, obj_player_pulo_particula);
+            //instance_create_depth(x, y, depth, obj_player_pulo_particula);
             
             //efeito mola
             ef_mola(0.6, 1.2)
@@ -235,12 +235,13 @@ estado_parado = function(){
     }
     
     //se eu apertei espaço, vou para o estado de pulando
-    if (jump)
+    if (jump and estado)
     {
         estado = estado_pulando;
         
         //faço a particula
         instance_create_depth(x, y, depth, obj_player_pulo_particula);
+        
     }
     
     //se eu não estou no chão, vou para o estado de pulando
@@ -419,6 +420,10 @@ estado_player_tinta_loop = function(){
     troca_sprite(spr_player_tinta_loop);
     
     aplica_velocidade_player();
+    
+    velv = 0;
+    
+        
     
     //var que vê se na minha frente - embaixo de mim, não tem chão
     //obs: coloquei o meu velh no lugar do dir, porque o velh vira 0
