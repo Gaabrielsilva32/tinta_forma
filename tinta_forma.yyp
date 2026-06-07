@@ -72,7 +72,7 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_sair_tinta_particula","path":"objects/obj_sair_tinta_particula/obj_sair_tinta_particula.yy",},},
     {"id":{"name":"obj_screenshake_","path":"objects/obj_screenshake_/obj_screenshake_.yy",},},
-    {"id":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"id":{"name":"rm_level1","path":"rooms/rm_level1/rm_level1.yy",},},
     {"id":{"name":"scr_efeito_branco","path":"scripts/scr_efeito_branco/scr_efeito_branco.yy",},},
     {"id":{"name":"scr_efeito_mola","path":"scripts/scr_efeito_mola/scr_efeito_mola.yy",},},
     {"id":{"name":"scr_efeito_som","path":"scripts/scr_efeito_som/scr_efeito_som.yy",},},
@@ -107,7 +107,7 @@
   "resourceType":"GMProject",
   "resourceVersion":"2.0",
   "RoomOrderNodes":[
-    {"roomId":{"name":"Room1","path":"rooms/Room1/Room1.yy",},},
+    {"roomId":{"name":"rm_level1","path":"rooms/rm_level1/rm_level1.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[
