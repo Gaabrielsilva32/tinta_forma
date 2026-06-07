@@ -138,6 +138,9 @@ aplica_velocidade_player = function()
             
         }   
         
+        //limitando o meu velv
+        velv = clamp(velv, -max_velv, max_velv);
+        
     }
     
 }
