@@ -287,6 +287,12 @@ estado_movendo = function(){
         
     }
     
+    //se o velv é diferente de 0
+    //então eu não to no chão
+    //ent, eu vou pro estado de pulando
+    if (velv != 0) estado = estado_pulando;
+    
+    
     //se estou me movendo e apertei pra pular
     if (jump)
     {
