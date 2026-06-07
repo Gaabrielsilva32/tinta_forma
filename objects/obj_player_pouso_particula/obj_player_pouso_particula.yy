@@ -8,8 +8,8 @@
   "name":"obj_player_pouso_particula",
   "overriddenProperties":[],
   "parent":{
-    "name":"Particulas-player",
-    "path":"folders/Objetos/Player/Particulas-player.yy",
+    "name":"pulo_particulas",
+    "path":"folders/Objetos/Player/Particulas-player/pulo_particulas.yy",
   },
   "parentObjectId":null,
   "persistent":false,

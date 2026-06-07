@@ -1,15 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_player_pulo_particula",
+  "%Name":"obj_entrar_tinta_particula",
   "eventList":[
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":7,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
-  "name":"obj_player_pulo_particula",
+  "name":"obj_entrar_tinta_particula",
   "overriddenProperties":[],
   "parent":{
-    "name":"pulo_particulas",
-    "path":"folders/Objetos/Player/Particulas-player/pulo_particulas.yy",
+    "name":"tinta_particulas",
+    "path":"folders/Objetos/Player/Particulas-player/tinta_particulas.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -30,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_player_pulo_particula",
-    "path":"sprites/spr_player_pulo_particula/spr_player_pulo_particula.yy",
+    "name":"spr_entrar_tinta_particula",
+    "path":"sprites/spr_entrar_tinta_particula/spr_entrar_tinta_particula.yy",
   },
   "spriteMaskId":null,
   "visible":true,

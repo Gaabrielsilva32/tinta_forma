@@ -18,13 +18,16 @@ chao = false;
 
 
 //vars inputs
-right = false;
-left  = false;
-jump  = false;
-
+right       = false;
+left        = false;
+jump        = false;
+power_tinta = false;
 
 //janela que mostra os debugs
 view_player = noone;
+
+//var que dita a minha direção
+dir = 1;
 
 //iniciando o efeito mola
 inicio_ef_mola();
@@ -51,9 +54,10 @@ pega_inputs = function()
     //dando os valores 
     //só passo o valor da segunda tecla escolhida no keyboard_set_map
     //porque ela é a principal
-    right = keyboard_check(ord("D"));
-    left  = keyboard_check(ord("A"));
-    jump  =  keyboard_check_pressed(vk_space);
+    right       = keyboard_check(ord("D"));
+    left        = keyboard_check(ord("A"));
+    jump        =  keyboard_check_pressed(vk_space);
+    power_tinta = keyboard_check_pressed(vk_shift);
 }
 
 
@@ -61,14 +65,14 @@ pega_inputs = function()
 ajusta_escala = function(){
     
     //se a minha velh for diferente de 0
-    //o meu img xscale vai ser alterado de acordo com a minha velh
+    //a minha dir vai ser alterada de acordo com a minha velh
     //se ela for positiva, a função sing retorna 1
     //se for negativa -1
     //e como eu disse pra isso só funcionar se a velh for diferente de 0
     //não tenho o problema dele sumir pela img xscale ser 0
     //fiz desse jeito, porque garanto que ele não vai se mexer 
     //quando tiver saindo da tinta, por ex.
-    if (velh != 0) image_xscale = sign(velh);
+    if (velh != 0) dir = sign(velh);
     
     
 }
@@ -246,6 +250,13 @@ estado_parado = function(){
         
     }
     
+    //se apertei shift
+    if (power_tinta)
+    {
+        //vou para o estado de entrar na tinta
+        estado = estado_player_tinta_entrar;
+    }
+    
 }
 
 //método do estado movendo
@@ -276,6 +287,15 @@ estado_movendo = function(){
         //faço a particula
         instance_create_depth(x, y, depth, obj_player_pulo_particula);
     }
+    
+    //se apertar shift
+    if (power_tinta)
+    {
+        //vou pro estado de entrar na tinta
+        estado = estado_player_tinta_entrar;
+        
+    }
+    
 }
 
 
@@ -371,21 +391,55 @@ estado_pegando_powerup_fim = function(){
 estado_player_tinta_entrar = function(){
     
     //troco a sprite
-    troca_sprite(spr_player_tinta_entrar)
+    troca_sprite(spr_player_tinta_entrar);
+    
+    //zero o velh
+    velh = 0;
+    
+    //se o obj não existe
+    if (!instance_exists(obj_entrar_tinta_particula))
+    {
+        //crio a particula de entrar na tinta 
+        instance_create_depth(x, y, depth -1, obj_entrar_tinta_particula);
+    }
     
     //vejo se a animação acabou
     if (acabou_animacao())
     {
-        //vou pro próximo estado
-        estado = estado_player_tinta_sair;
+        //vou pra o estado de loop
+        estado = estado_player_tinta_loop;
         
     }
 }
 
+//estado de loop na tinta/o player tá na tinta
+estado_player_tinta_loop = function(){
+    
+    //troco a sprite
+    troca_sprite(spr_player_tinta_loop);
+    
+    //me movo
+    aplica_velocidade_player();
+    
+    //se apertei shift
+    if (power_tinta)
+    {
+        //vou para o estado de sair da tinta
+        estado = estado_player_tinta_sair;
+        
+        //crio a particula de sair da tinta
+        instance_create_depth(x, y, depth, obj_sair_tinta_particula);
+    }
+    
+    
+}
+
+//estado de sair da tinta
 estado_player_tinta_sair = function(){
     
     //troco a sprite
     troca_sprite(spr_player_tinta_sair);
+    
     
     //vejo se a animação acabou
     if (acabou_animacao())
