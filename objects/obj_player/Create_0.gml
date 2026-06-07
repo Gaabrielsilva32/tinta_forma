@@ -418,8 +418,22 @@ estado_player_tinta_loop = function(){
     //troco a sprite
     troca_sprite(spr_player_tinta_loop);
     
-    //me movo
     aplica_velocidade_player();
+    
+    //var que vê se na minha frente - embaixo de mim, não tem chão
+    //obs: coloquei o meu velh no lugar do dir, porque o velh vira 0
+    //o dir não. Ao virar 0, fica 0 * 19, que é 0, ou seja,
+    //ele verifica em baixo da sprite, que tem chão
+    //ent eu posso andar de novo
+    var _pare = !place_meeting(x + (velh * 9), y + 1, obj_parede);
+     
+    
+    //zero a velh
+    if (_pare)
+    {
+        velh = 0;
+    }    
+
     
     //se apertei shift
     if (power_tinta)
@@ -440,6 +454,7 @@ estado_player_tinta_sair = function(){
     //troco a sprite
     troca_sprite(spr_player_tinta_sair);
     
+    velh = 0;
     
     //vejo se a animação acabou
     if (acabou_animacao())
