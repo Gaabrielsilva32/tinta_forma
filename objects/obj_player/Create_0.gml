@@ -29,6 +29,13 @@ view_player = noone;
 //var que dita a minha direção
 dir = 1;
 
+
+//var pra guardar a colisão do tileset do chão
+var _layer = layer_tilemap_get_id("tl_level");
+
+//variavel que quarda as colisões que eu tenho no jogo
+colisoes = [obj_parede, _layer]
+
 //iniciando o efeito mola
 inicio_ef_mola();
 
@@ -82,7 +89,7 @@ ajusta_escala = function(){
 checa_chao = function()
 {   
     
-    chao = place_meeting(x, y + 1, obj_parede);
+    chao = place_meeting(x, y + 1, colisoes);
     
 }
 
@@ -144,10 +151,10 @@ movimento = function(){
     //faz com que se movimente
     //e colida com os obj
     //4 é o valor padrão da precisão da colisão
-    move_and_collide(velh, velv, obj_parede, 4);
+    move_and_collide(velh, velv, colisoes, 4);
     
     //aplicando à velv
-    move_and_collide(0, velv, obj_parede, 24);
+    move_and_collide(0, velv, colisoes, 24);
 }
 
 
@@ -430,7 +437,7 @@ estado_player_tinta_loop = function(){
     //o dir não. Ao virar 0, fica 0 * 19, que é 0, ou seja,
     //ele verifica em baixo da sprite, que tem chão
     //ent eu posso andar de novo
-    var _pare = !place_meeting(x + (velh * 9), y + 1, obj_parede);
+    var _pare = !place_meeting(x + (velh * 9), y + 1, colisoes);
      
     
     //zero a velh
