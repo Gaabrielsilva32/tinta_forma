@@ -10,6 +10,9 @@ movimento();
 //metodo de ativar o debug com base no tab
 ativa_debug();
 
+//finalizando o efeito mola
+
+
 ajusta_escala();
 
 //passando a var/função estado, que roda o meu estado atual
