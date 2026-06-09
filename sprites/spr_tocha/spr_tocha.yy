@@ -29,7 +29,7 @@
   ],
   "name":"spr_tocha",
   "nineSlice":null,
-  "origin":7,
+  "origin":9,
   "parent":{
     "name":"decoracoes",
     "path":"folders/Sprites/decoracoes.yy",
@@ -100,7 +100,7 @@
     "visibleRange":null,
     "volume":1.0,
     "xorigin":3,
-    "yorigin":18,
+    "yorigin":10,
   },
   "swatchColours":null,
   "swfPrecision":0.5,

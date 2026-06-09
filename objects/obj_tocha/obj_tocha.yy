@@ -1,13 +1,15 @@
 {
   "$GMObject":"",
-  "%Name":"obj_parede",
-  "eventList":[],
+  "%Name":"obj_tocha",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
   "managed":true,
-  "name":"obj_parede",
+  "name":"obj_tocha",
   "overriddenProperties":[],
   "parent":{
-    "name":"colisao",
-    "path":"folders/Objetos/colisao.yy",
+    "name":"Decoracoes",
+    "path":"folders/Objetos/Decoracoes.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -28,8 +30,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_parede",
-    "path":"sprites/spr_parede/spr_parede.yy",
+    "name":"spr_tocha",
+    "path":"sprites/spr_tocha/spr_tocha.yy",
   },
   "spriteMaskId":null,
   "visible":true,
