@@ -1,0 +1,25 @@
+{
+  "$GMParticleSystem":"",
+  "%Name":"ps_particula_fogo",
+  "backdropHeight":18,
+  "backdropImageOpacity":0.5,
+  "backdropImagePath":"D:\\game makerr\\materiais e ferramentas\\materiais do curso\\assets_tinta_forma\\Materiais e créditos\\Assets\\Cenário\\Decoração\\Tocha.gif",
+  "backdropWidth":6,
+  "backdropXOffset":0.0,
+  "backdropYOffset":0.0,
+  "drawOrder":0,
+  "emitters":[
+    {"$GMPSEmitter":"","%Name":"fogo_particula","additiveBlend":true,"directionIncrease":0.0,"directionMax":100.0,"directionMin":80.0,"directionWiggle":0.0,"distribution":0,"editorColour":1090519039,"editorDrawShape":true,"emitCount":-10,"emitDelayMax":60.0,"emitDelayMin":30.0,"emitDelayUnits":1,"emitIntervalMax":0.0,"emitIntervalMin":0.0,"emitIntervalUnits":0,"enabled":true,"endColour":2571432703,"GMPresetName":null,"gravityDirection":270.0,"gravityForce":0.0,"headPosition":0.0,"lifetimeMax":80.0,"lifetimeMin":80.0,"linkedEmitter":null,"locked":false,"midColour":2785039871,"mode":0,"name":"fogo_particula","orientationIncrease":0.0,"orientationMax":0.0,"orientationMin":300.0,"orientationRelative":false,"orientationWiggle":0.0,"regionH":11.768547,"regionW":4.0,"regionX":0.0,"regionY":-4.0,"resourceType":"GMPSEmitter","resourceVersion":"2.0","scaleX":0.01,"scaleY":0.01,"shape":0,"sizeIncrease":0.0,"sizeMax":4.0,"sizeMin":2.0,"sizeWiggle":0.0,"spawnOnDeathCount":1,"spawnOnDeathGMPreset":null,"spawnOnDeathId":null,"spawnOnUpdateCount":1,"spawnOnUpdateGMPreset":null,"spawnOnUpdateId":null,"speedIncrease":0.08,"speedMax":0.0,"speedMin":0.0,"speedWiggle":0.0,"spriteAnimate":false,"spriteId":null,"spriteRandom":false,"spriteStretch":true,"startColour":1849208063,"texture":8,},
+  ],
+  "name":"ps_particula_fogo",
+  "parent":{
+    "name":"Particle System",
+    "path":"folders/Particle System.yy",
+  },
+  "resourceType":"GMParticleSystem",
+  "resourceVersion":"2.0",
+  "showBackdrop":true,
+  "showBackdropImage":true,
+  "xorigin":0,
+  "yorigin":0,
+}

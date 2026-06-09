@@ -77,7 +77,7 @@
     {"id":{"name":"obj_sair_tinta_particula","path":"objects/obj_sair_tinta_particula/obj_sair_tinta_particula.yy",},},
     {"id":{"name":"obj_screenshake_","path":"objects/obj_screenshake_/obj_screenshake_.yy",},},
     {"id":{"name":"obj_tocha","path":"objects/obj_tocha/obj_tocha.yy",},},
-    {"id":{"name":"ParticleSystem1","path":"particles/ParticleSystem1/ParticleSystem1.yy",},},
+    {"id":{"name":"ps_particula_fogo","path":"particles/ps_particula_fogo/ps_particula_fogo.yy",},},
     {"id":{"name":"rm_level1","path":"rooms/rm_level1/rm_level1.yy",},},
     {"id":{"name":"scr_efeito_branco","path":"scripts/scr_efeito_branco/scr_efeito_branco.yy",},},
     {"id":{"name":"scr_efeito_mola","path":"scripts/scr_efeito_mola/scr_efeito_mola.yy",},},
