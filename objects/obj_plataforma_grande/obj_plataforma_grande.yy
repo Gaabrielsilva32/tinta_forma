@@ -9,7 +9,10 @@
     "name":"Blocos",
     "path":"folders/Objetos/Blocos.yy",
   },
-  "parentObjectId":null,
+  "parentObjectId":{
+    "name":"obj_parede",
+    "path":"objects/obj_parede/obj_parede.yy",
+  },
   "persistent":false,
   "physicsAngularDamping":0.1,
   "physicsDensity":0.5,
