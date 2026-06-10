@@ -1,13 +1,13 @@
 {
   "$GMObject":"",
-  "%Name":"obj_parede",
+  "%Name":"obj_plataforma_grande",
   "eventList":[],
   "managed":true,
-  "name":"obj_parede",
+  "name":"obj_plataforma_grande",
   "overriddenProperties":[],
   "parent":{
-    "name":"Colisao",
-    "path":"folders/Objetos/Colisao.yy",
+    "name":"Blocos",
+    "path":"folders/Objetos/Blocos.yy",
   },
   "parentObjectId":null,
   "persistent":false,
@@ -28,8 +28,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_parede",
-    "path":"sprites/spr_parede/spr_parede.yy",
+    "name":"spr_plataforma_grande",
+    "path":"sprites/spr_plataforma_grande/spr_plataforma_grande.yy",
   },
   "spriteMaskId":null,
   "visible":true,
