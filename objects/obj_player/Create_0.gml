@@ -333,9 +333,15 @@ estado_pulando = function(){
         //se o obj_parede_one_way EXISTE na mnha array
         if (array_contains(colisoes, obj_parede_one_way))
         {
+            
+           //remolve o ultimo item da array -> array_pop(colisoes);
+            
+            //var para descobrir a posição do obj com base no index dele
+            var _idx = array_get_index(colisoes, obj_parede_one_way);
+            
             //remolvendo a parede one way da lista de colisoes
             //porque subindo e não descendo
-            array_pop(colisoes);
+            array_delete(colisoes, _idx, 1);
             
             
         }
