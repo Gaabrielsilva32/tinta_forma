@@ -34,7 +34,7 @@ dir = 1;
 var _layer = layer_tilemap_get_id("tl_level");
 
 //variavel que quarda as colisões que eu tenho no jogo
-colisoes = [obj_parede, _layer]
+colisoes = [obj_parede, _layer];
 
 //iniciando o efeito mola
 inicio_ef_mola();
@@ -329,10 +329,39 @@ estado_pulando = function(){
     {
         //troco o sprite
         troca_sprite(spr_player_jump_cima);
+        
+        //se o obj_parede_one_way EXISTE na mnha array
+        if (array_contains(colisoes, obj_parede_one_way))
+        {
+            //remolvendo a parede one way da lista de colisoes
+            //porque subindo e não descendo
+            array_pop(colisoes);
+            
+            
+        }
+        
     }
     else //se estou caindo, a minha velv é positiva 
     {
     	troca_sprite(spr_player_jump_baixo);
+        
+        //var pra verificar se estou colidindo com a parede one way
+        var _parede_one_way_colidindo = place_meeting(x, y, obj_andaime);
+        
+        //se não estou colidindo com a parede one way
+        if (!_parede_one_way_colidindo)
+        {
+            
+            //se o obj_parede_one_way NÃO existe na minha array
+            if (!array_contains(colisoes, obj_parede_one_way))
+            {
+                
+                //adiciono a parede one way à lista de colisões
+                array_push(colisoes, obj_parede_one_way);
+            }
+            
+        }
+        
     }
     
     

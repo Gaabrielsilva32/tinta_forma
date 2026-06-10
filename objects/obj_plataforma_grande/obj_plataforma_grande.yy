@@ -10,8 +10,8 @@
     "path":"folders/Objetos/Blocos.yy",
   },
   "parentObjectId":{
-    "name":"obj_parede",
-    "path":"objects/obj_parede/obj_parede.yy",
+    "name":"obj_parede_one_way",
+    "path":"objects/obj_parede_one_way/obj_parede_one_way.yy",
   },
   "persistent":false,
   "physicsAngularDamping":0.1,
