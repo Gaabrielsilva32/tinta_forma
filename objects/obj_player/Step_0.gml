@@ -18,4 +18,5 @@ ajusta_escala();
 //passando a var/função estado, que roda o meu estado atual
 estado();
 
+
 show_debug_message(velv);

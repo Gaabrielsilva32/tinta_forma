@@ -18,23 +18,23 @@ chao = false;
 
 
 //vars inputs
-right       = false;
-left        = false;
-jump        = false;
-power_tinta = false;
+right           = false;
+left            = false;
+jump            = false;
+power_tinta     = false;
 
 //janela que mostra os debugs
-view_player = noone;
+view_player     = noone;
 
 //var que dita a minha direção
-dir = 1;
+dir             = 1;
 
 
 //var pra guardar a colisão do tileset do chão
-var _layer = layer_tilemap_get_id("tl_level");
+var _layer      = layer_tilemap_get_id("tl_level");
 
 //variavel que quarda as colisões que eu tenho no jogo
-colisoes = [obj_parede, _layer];
+colisoes        = [obj_parede, _layer];
 
 //iniciando o efeito mola
 inicio_ef_mola();
@@ -217,6 +217,15 @@ acabou_animacao = function(){
 }
 
 
+//pega powerup
+pega_powerup = function()
+{
+    
+    estado = estado_pegando_powerup_inicio;
+    
+}
+
+
 
 //metodos de estado
 //metodo do estado parado
@@ -312,7 +321,6 @@ estado_movendo = function(){
         estado = estado_player_tinta_entrar;
         
     }
-    
 }
 
 
@@ -392,6 +400,9 @@ estado_pegando_powerup_inicio = function(){
     
     //começo a animação de pegando powerup
     troca_sprite(spr_player_powerup_inicio);
+    
+    velh = 0;
+    
     
     //se a animação acabou
     //e aqui eu uso parenteses, 
