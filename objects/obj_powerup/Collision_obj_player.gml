@@ -13,5 +13,6 @@ if (alvo == noone)
     //chamando metodo de movimento
     movimento();
     
+    particula_powerup();
     
 }

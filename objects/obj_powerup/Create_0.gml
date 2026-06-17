@@ -16,3 +16,21 @@ movimento = function()
     y = alvo.y -34;
 }
 
+//particula
+particula_powerup = function()
+{
+    repeat (20) 
+    {
+    	var _part = instance_create_layer(x, y, "enfeites", obj_particula_powerup)
+        
+        var _vel  = random_range(0.5, 2);
+        
+        var _dir  = random_range(0, 359);
+        
+        _part.speed     = _vel;
+        
+        _part.direction = _dir;
+        
+    }
+    
+}
