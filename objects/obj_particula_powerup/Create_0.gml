@@ -1,0 +1,3 @@
+alvo = noone;
+
+voltar = false;
