@@ -422,15 +422,23 @@ estado_pegando_powerup_meio = function(){
     //vou para o outra parte da animação
     troca_sprite(spr_player_powerup_meio);
     
-    //se a animação acabou
-    if (acabou_animacao())
+    //se não resta mais particulas
+    if (!instance_exists(obj_particula_powerup))
     {
         
         //vou para o próximo estado
         estado = estado_pegando_powerup_fim;
-        
     }
     
+    //se a animação acabou
+    //if (acabou_animacao())
+    //{
+        //
+        ////vou para o próximo estado
+        //estado = estado_pegando_powerup_fim;
+        //
+    //}
+    //
 }
 
 //estado do fim da animação de pegando powerup
