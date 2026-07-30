@@ -430,15 +430,6 @@ estado_pegando_powerup_meio = function(){
         estado = estado_pegando_powerup_fim;
     }
     
-    //se a animação acabou
-    //if (acabou_animacao())
-    //{
-        //
-        ////vou para o próximo estado
-        //estado = estado_pegando_powerup_fim;
-        //
-    //}
-    //
 }
 
 //estado do fim da animação de pegando powerup

@@ -1,5 +1,10 @@
 if (!alvo) exit;
     
+//a particula cresce de acordo com a velocidade
+image_xscale = lerp(image_xscale, speed * 3, 0.1);
+
+//mudando a minha direção
+image_angle = direction;
 
 //se a minha velocidade ainda não foi zerada
 if (!voltar)
