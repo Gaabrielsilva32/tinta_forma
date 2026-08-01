@@ -12,9 +12,10 @@ vel      = 2;
 //gavidade do player
 grav = 0.25;
 
-//vars do jogo
+//vars controles
 //verfica se estou no chão
-chao = false;
+chao           = false;
+peguei_powerup = false;
 
 
 //vars inputs
@@ -42,9 +43,9 @@ inicio_ef_mola();
 #endregion
 
 
-
-#region Métodos
-
+//===============================================================================
+#region                             Métodos
+//===============================================================================
 
 //metodo de pegar os inputs
 pega_inputs = function()
@@ -223,6 +224,9 @@ pega_powerup = function()
     
     estado = estado_pegando_powerup_inicio;
     
+    //a var de controle vira true
+    peguei_powerup = true;
+    
 }
 
 
@@ -271,7 +275,7 @@ estado_parado = function(){
     }
     
     //se apertei shift
-    if (power_tinta)
+    if (power_tinta && peguei_powerup)
     {
         //vou para o estado de entrar na tinta
         estado = estado_player_tinta_entrar;
@@ -315,7 +319,7 @@ estado_movendo = function(){
     }
     
     //se apertar shift
-    if (power_tinta)
+    if (power_tinta && peguei_powerup)
     {
         //vou pro estado de entrar na tinta
         estado = estado_player_tinta_entrar;
